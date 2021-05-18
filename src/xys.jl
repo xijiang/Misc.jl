@@ -5,7 +5,6 @@ This function is to download all 新语丝·月刊.
 """
 function dl_xys_mj()
     url = "http://www.xys.org/xys/magazine/GB"
-
     for year in 1994:2021
         page = parsehtml(read(download("$url/$year/"), String))
         for k in eachmatch(sel"li", page.root)
@@ -16,6 +15,5 @@ function dl_xys_mj()
             end
         end
     end
-
-    run(`tar jcvf xys.tar.bz2 xys*.txt`)
+    #run(`tar jcvf xys.tar.bz2 xys*.txt`)
 end
